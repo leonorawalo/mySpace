@@ -70,4 +70,4 @@ Built with **Vue.js** on the frontend and powered by **custom Elixir APIs** for 
    #or
    yarn dev
    ```
-4. Make sure the Elixir APIs are running for logging in/ signing up
+4. Make sure the Elixir APIs are running for logging in/ signing up (https://github.com/leonorawalo/Authentication-Endpoints.git)
