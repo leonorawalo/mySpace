@@ -75,12 +75,12 @@ Built with **Vue.js** on the frontend and powered by **custom Elixir APIs** for 
 ##Project structure
 myspace/
 ├── src/
-│   ├── assets/        # Images, icons, styles
-│   ├── components/    # Vue components
-│   ├── modules/       # Core modules (wallets, health, gallery, socials, etc.)
-│   ├── router/        # Vue Router setup
-│   ├── stores/        # State management
-│   └── views/         # Page-level views
-├── public/            # Static files
-├── package.json
-└── README.md
+│ ├── assets/ # Images, icons, styles
+│ ├── components/ # Reusable Vue components
+│ ├── modules/ # Feature modules (wallets, health, gallery, socials, etc.)
+│ ├── router/ # Vue Router setup
+│ ├── stores/ # State management
+│ └── views/ # Page-level views
+├── public/ # Static files
+├── package.json # Project dependencies & scripts
+└── README.md # Project documentation
