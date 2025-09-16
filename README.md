@@ -71,16 +71,3 @@ Built with **Vue.js** on the frontend and powered by **custom Elixir APIs** for 
    yarn dev
    ```
 4. Make sure the Elixir APIs are running for logging in/ signing up
-
-##Project structure
-myspace/
-├── src/
-│ ├── assets/ # Images, icons, styles
-│ ├── components/ # Reusable Vue components
-│ ├── modules/ # Feature modules (wallets, health, gallery, socials, etc.)
-│ ├── router/ # Vue Router setup
-│ ├── stores/ # State management
-│ └── views/ # Page-level views
-├── public/ # Static files
-├── package.json # Project dependencies & scripts
-└── README.md # Project documentation
