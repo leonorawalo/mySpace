@@ -1,54 +1,73 @@
 # mySpace
 
-This template should help get you started developing with Vue 3 in Vite.
+mySpace is a modular web application designed to help users manage different aspects of their daily life — from finances to health, creativity, and social interactions.  
 
-## Recommended IDE Setup
+Built with **Vue.js** on the frontend and powered by **custom Elixir APIs** for authentication and data handling, mySpace combines simplicity with flexibility.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Customize configuration
+## ✨ Features & Modules
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Authentication**
+  - Login & Signup integrated with custom **Elixir APIs**.
+  - Secure and scalable user sessions.
 
-## Project Setup
+- **Wallets Module**
+  - Track spending and income.
+  - Manage multiple wallets and transactions.
+  - Visual insights into financial activity.
 
-```sh
-npm install
-```
+- **Health & Physicals Module**
+  - Record and monitor physical activities.
+  - Track health stats and personal wellness goals.
 
-### Compile and Hot-Reload for Development
+- **Gallery Module**
+  - Store and organize personal images and media.
+  - Clean interface for browsing and managing your visual content.
 
-```sh
-npm run dev
-```
+- **Socials Module**
+  - Manage and interact with your social connections.
+  - Unified view of activity across different platforms.
 
-### Compile and Minify for Production
+- **(Extendable)**
+  - mySpace is built to support more modules in the future for a truly all-in-one lifestyle app.
 
-```sh
-npm run build
-```
+---
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## 🛠️ Tech Stack
 
-```sh
-npm run test:unit
-```
+- **Frontend:** Vue.js  
+- **Backend APIs:** Elixir (for authentication and data handling)  
+- **Other:** Tailwind CSS (styling), REST APIs  
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+---
 
-```sh
-# Install browsers for the first run
-npx playwright install
+## 🚀 Getting Started
 
-# When testing on CI, must build the project first
-npm run build
+### Prerequisites
+- [Node.js](https://nodejs.org/) (>= 16.x)  
+- [Elixir](https://elixir-lang.org/) (for backend APIs)  
+- npm or yarn package manager  
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/myspace.git
+   cd myspace
+   ```
+### Installation (continued)
+
+2. Install frontend dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. Run the Development server:
+   ```bash
+   npm run dev
+   #or
+   yarn dev
+   ```
+4. Make sure the Elixir APIs are running for logging in/ signing up (https://github.com/leonorawalo/Authentication-Endpoints.git)
