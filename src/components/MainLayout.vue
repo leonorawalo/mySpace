@@ -14,9 +14,11 @@
 
       <!-- Routed Content -->
       <main
-        class="flex-1 p-4 transition-all duration-300"
+        class="flex-1 transition-all duration-300"
         :class="{
-          'ml-64': isLargeScreen && uiStore.isSideNavOpen,
+          'xl:ml-[178px]': isLargeScreen && uiStore.isSideNavOpen,
+          'lg:ml-[170px]':uiStore.isSideNavOpen,
+          'md:ml-[200px]':uiStore.isSideNavOpen,
           'ml-0': !uiStore.isSideNavOpen || !isLargeScreen
         }"
       >

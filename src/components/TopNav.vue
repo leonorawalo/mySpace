@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
-import { useRouter } from "vue-router"
+import { RouterLink, useRouter } from "vue-router"
 import { useUIStore } from "@/stores/ui"
 
 const moreOptions = ref(false)
@@ -22,7 +22,7 @@ function handleClickOutside(event) {
 // logout function
 function logout() {
   // Clear user session (example: localStorage)
-  localStorage.removeItem("user") // or remove token
+  sessionStorage.removeItem("user") // or remove token
   moreOptions.value = false
 
   // Redirect to login
@@ -43,12 +43,12 @@ onBeforeUnmount(() => {
     class="fixed top-0 left-0 w-full z-50 bg-gray-100 border-b border-gray-300 py-4 px-4 flex flex-row justify-between items-center"
   >
     <!-- Logo -->
-    <h1 class="text-4xl font-bold text-black">mySpace</h1>
+    <h1 class="text-4xl font-bold text-black">Echo</h1>
 
     <!-- Nav -->
-    <ul class="flex flex-row space-x-6 text-gray-600 font-thin items-center relative">
-      <li class="hover:text-gray-900 hover:font-normal cursor-pointer" >Home</li>
-      <li class="hover:text-gray-900 hover:font-normal cursor-pointer" @click="uiStore.toggleSideNav">Menu</li>
+    <ul class="flex flex-row space-x-6 text-gray-600 items-center relative">
+      <li class="hover:text-gray-900 hover:font-medium cursor-pointer"><RouterLink to="/home">Home</RouterLink></li>
+      <li class="hover:text-gray-900 hover:font-meduim cursor-pointer" @click="uiStore.toggleSideNav">Menu</li>
 
       <!-- Avatar -->
       <li class="relative">

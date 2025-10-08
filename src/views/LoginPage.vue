@@ -1,14 +1,15 @@
 <script setup>
 import { ref } from "vue";
-import axios from "axios";
 import { useRouter } from "vue-router";
+import { useAuthStore } from '@/stores/auth';
 
 const isSignUpMode = ref(false);
 const name = ref("");
 const email = ref("");
 const password = ref("")
 const notification = ref({ show: false, message: "", type: "success" })
- const router = useRouter();
+const router = useRouter();
+const authStore = useAuthStore();
 
 const showNotification = (message, type = "success") => {
   notification.value = { show: true, message, type };
@@ -20,48 +21,36 @@ const toggleMode = () => {
   isSignUpMode.value = !isSignUpMode.value;
 };
 
-// SIGNUP
+// SIGNUP - Use the auth store
 const handleSignup = async () => {
   try {
-    await axios.post("http://127.0.0.1:4000/api/register", {
-      user: {
-        name: name.value,
-        email: email.value,
-        password: password.value,
-      },
-    });
-    showNotification("Signup successful! Please log in.", "success");
-    isSignUpMode.value = false; // switch to login mode after successful signup
-
+    await authStore.register(name.value, email.value, password.value);
+    showNotification("Signup successful!", "success");
+    console.log ("Sgnup Successhfull," + name.value);
+    router.push("/accreate");
   } catch (error) {
-    console.error("Signup failed:", error.response?.data || error.message);
-    showNotification("Signup failed: " + (error.response?.data?.message || error.message), "error");
+    console.error("Signup failed:", error.message);
+    showNotification("Signup failed: " + error.message, "error");
   }
 };
 
-// LOGIN
+// LOGIN - Use the auth store
 const handleLogin = async () => {
   try {
-    const response = await axios.post("http://127.0.0.1:4000/api/login", {
-      email: email.value,
-      password: password.value,
-    });
-    console.log("Login successful:", response.data);
-    alert("Login successful!");
-    // Redirect to home page or dashboard
-    router.push("/");
+    await authStore.login(email.value, password.value);
+    showNotification("Login successful!", "success");
+    router.push("/home");
   } catch (error) {
-    console.error("Login failed:", error.response?.data || error.message);
-    alert("Login failed: " + (error.response?.data?.message || error.message));
+    console.error("Login failed:", error.message);
+    showNotification("Login failed: " + error.message, "error");
   }
 };
 </script>
 
-
 <template>
   <div class="py-40 md:px-20 lg:px-40 xl:px-80 items-center justify-center w-full h-auto bg-gradient-to-r from-blue-500 to-blue-200">
-    <div class="relative flex flex-col md:flex-row w-auto h-auto p-14 bg-white rounded-3xl shadow-xl overflow-hidden">
-    
+    <div class="relative flex flex-row w-auto h-auto p-14 bg-white rounded-3xl shadow-xl overflow-hidden">
+
       <!-- Login form -->
       <div
         class="flex flex-col justify-center items-center w-1/2 p-8 transition-all duration-500"
@@ -131,7 +120,7 @@ const handleLogin = async () => {
         class="absolute top-0 left-1/2 w-1/2 h-full bg-gradient-to-r from-blue-200 to-blue-400 text-white flex flex-col items-center justify-center p-10 transition-transform duration-500"
         :class="{ '-translate-x-full': isSignUpMode }"
       >
-        <h2 class="text-2xl mx-4 font-bold mb-4 md:whitespace-nowrap md:text-4xl whitespace-normal">
+        <h2 class="flex justify-center text-3xl mx-4 font-bold mb-4 md:whitespace-nowrap md:text-4xl whitespace-normal">
           {{ isSignUpMode ? "Welcome Friend!" : "Hello Again!" }}
         </h2>
         <p class="mb-6 text-center max-w-xs">
@@ -150,7 +139,7 @@ const handleLogin = async () => {
   </div>
     <!-- Notification box -->
   <Notification
-    v-if="notification.show"
+    v-if="notification.showNotification"
     :message="notification.message"
     :type="notification.type"
   />

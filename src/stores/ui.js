@@ -20,23 +20,3 @@ export const useUIStore = defineStore("ui", () => {
 
   return { isSideNavOpen, toggleSideNav, closeSideNav }
 })
-/* Alternative Options:
-export const useUIStore = defineStore('ui', {
-  state: () => ({
-    isSideNavOpen: true,
-  }),
-  actions: {
-    toggleSideNav() {
-      this.isSideNavOpen = !this.isSideNavOpen
-    },
-    closeSideNav() {
-      this.isSideNavOpen = false
-    }
-  }
-})
-  class="flex-1 p-4 transition-all duration-300"
-        :class="{
-          'ml-48': isLargeScreen && sideNavOpen, // content shrinks
-          'ml-0': !isLargeScreen || !sideNavOpen // fills full width
-        
-*/

@@ -13,7 +13,7 @@ import FooterPart from './components/FooterPart.vue'
 const route = useRoute()
 
 // reactively update based on current route
-const showLayout = computed(() => route.path !== "/login")
+const showLayout = computed(() => route.path !== "/login" && route.path !== "/accreate" && route.path !== "/sform")
 
 onMounted(() => {
   if (auth.token && !auth.isExpired()) {
@@ -28,9 +28,10 @@ onMounted(() => {
 <template>
   <div class="flex flex-col min-h-screen">
     <TopNav v-if="showLayout" />
-    <SideNav v-if="showLayout" />
+    <div class="h-16" v-if="showLayout"></div> <!-- spacer for fixed top nav -->
+    <SideNav class="flex-1" v-if="showLayout" />
 
-    <router-view />
+    <router-view  class=""/>
 
     <FooterPart />
   </div>

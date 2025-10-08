@@ -1,7 +1,6 @@
 <script>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted} from "vue";
 import Chart from "chart.js/auto";
-
 import g1 from "@/assets/images/g7.jpeg";
 import g2 from "@/assets/images/g8.jpeg";
 import g3 from "@/assets/images/g3.jpeg";
@@ -51,23 +50,23 @@ export default {
 };
 </script>
 
-<template class="w-auto">
+<template class="w-auto bg-indigo-100 min-h-full">
   <div class="bg-indigo-100 min-h-full flex flex-col">
     <div class="flex flex-col items-center justify-center">
       <!-- Top row -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full p-4 md:p-8">
         <!-- User profile -->
-        <div class="border-2 border-gray-100 relative flex flex-col justify-center rounded-2xl overflow-hidden">
-          <img src="@/assets/images/homepic.jpeg" alt="User Image" class="w-full h-64 md:h-80 object-cover" />
+        <div class="border-2 border-gray-100 relative flex flex-col justify-center rounded-2xl overflow-hidden max-h-96">
+          <img src="@/assets/images/homepic.jpeg" alt="User Image" class="w-full h-full object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           <div class="absolute bottom-3 left-3 text-white">
-            <h4 class="font-bold text-2xl md:text-4xl lg:text-6xl">John Doe</h4>
-            <p class="text-sm md:text-base text-gray-200">Nairobi, Kenya</p>
+            <h4 class="font-bold text-2xl md:text-4xl lg:text-6xl">leonora</h4>
+            <p class="text-sm md:text-base text-gray-200">Kenya</p>
           </div>
         </div>
 
         <!-- Chart -->
-        <div class="bg-white border-2 border-gray-100 flex flex-col justify-center rounded-2xl p-4">
+        <div class="bg-white border-2 border-gray-100 flex flex-col justify-center rounded-2xl p-4 max-h-96">
           <div class="h-56 sm:h-72 md:h-80 lg:h-96">
             <canvas id="myCanvas" class="w-full h-full"></canvas>
           </div>
@@ -92,7 +91,7 @@ export default {
         </div>
 
         <!-- Wallet -->
-        <div class="bg-white border-2 border-gray-100 flex flex-col justify-center rounded-2xl p-6">
+        <div class="bg-white border-2 border-gray-100 flex flex-col rounded-2xl p-6">
           <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-gray-600">Wallet</h3>
           <p class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">$1,250.00</p>
           <div class="mt-2 text-sm md:text-base text-gray-600">
@@ -106,7 +105,7 @@ export default {
         </div>
 
         <!-- Tasks -->
-        <div class="bg-white border-2 border-gray-100 flex flex-col justify-center rounded-2xl p-6">
+        <div class="bg-white border-2 border-gray-100 flex flex-col rounded-2xl p-6">
           <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-gray-600">Tasks</h3>
           <ul class="list-disc list-inside text-gray-700 space-y-1">
             <li>Finish Vue.js project</li>
